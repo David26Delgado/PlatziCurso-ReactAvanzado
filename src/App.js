@@ -6,11 +6,11 @@ import { ListOfCategories } from './components/ListOfCategories'
 import { ListOfPhotoCards } from './components/ListOfPhotoCards'
 
 // Styled Components
-import { GlobalStyle } from './GlobalStyles'
+import { GlobalStyles } from './styles/GlobalStyles'
 
 export const App = () => (
   <>
-    <GlobalStyle />
+    <GlobalStyles />
     <Logo />
     <ListOfCategories />
     <ListOfPhotoCards />
