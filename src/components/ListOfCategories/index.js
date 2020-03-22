@@ -6,10 +6,13 @@ import { Category } from '../Category'
 // Styled Components
 import { List, Item } from './styles'
 
+// Api
+import { categories } from './../../../api/db'
+
 export const ListOfCategories = () => {
   return (
     <List>
-      {[1, 2, 3, 4].map((category) => <Item key={category}><Category /></Item>)}
+      {categories.map((category) => <Item key={category.id}><Category {...category} /></Item>)}
     </List>
   )
 }
