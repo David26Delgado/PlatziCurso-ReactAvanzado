@@ -6,17 +6,12 @@ import { Category } from '../Category'
 // Styled Components
 import { List, Item } from './styles'
 
-export const ListOfCategories = () => {
-  const [categories, setCategories] = useState([])
-  const [showFixed, setShowFixed] = useState(false)
+// Custom Hooks
+import { useCategoriesData } from '../../hooks/useCategoriesData'
 
-  useEffect(() => {
-    window.fetch('https://petgram-server-ddelgado-5xwsbs4j9.now.sh/categories')
-      .then(res => res.json())
-      .then(response => {
-        setCategories(response)
-      })
-  }, [])
+export const ListOfCategories = () => {
+  const { categories, loading } = useCategoriesData()
+  const [showFixed, setShowFixed] = useState(false)
 
   useEffect(() => {
     const onScroll = e => {
@@ -31,10 +26,13 @@ export const ListOfCategories = () => {
   }, [showFixed])
 
   const renderList = (fixed) => (
-    <List className={fixed ? 'fixed' : ''}>
-      {categories.map((category) => <Item key={category.id}><Category {...category} /></Item>)}
+    <List fixed={fixed}>
+      {
+        loading
+          ? <Item key='loading'><Category /></Item>
+          : categories.map((category) => <Item key={category.id}><Category {...category} /></Item>)
+      }
     </List>
-
   )
 
   return (
