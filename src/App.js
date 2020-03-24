@@ -1,12 +1,16 @@
 import React from 'react'
 
+// Router
+import { Router } from '@reach/router'
+
 // Components
 import { Logo } from './components/Logo'
-import { ListOfCategories } from './components/ListOfCategories'
 
 // Containers
-import { ListOfPhotoCards } from './containers/ListOfPhotoCards'
 import { PhotoCardWithQuery } from './containers/PhotoCardWithQuery'
+
+// Pages
+import { Home } from './pages/Home'
 
 // Styled Components
 import { GlobalStyles } from './styles/GlobalStyles'
@@ -23,10 +27,10 @@ export const App = () => {
         detailId
           ? <PhotoCardWithQuery id={detailId} />
           : (
-            <>
-              <ListOfCategories />
-              <ListOfPhotoCards categoryId={2} />
-            </>
+            <Router>
+              <Home path='/' />
+              <Home path='/pet/:id' />
+            </Router>
           )
       }
     </>
