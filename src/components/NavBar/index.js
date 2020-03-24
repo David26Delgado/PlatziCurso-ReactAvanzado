@@ -4,7 +4,7 @@ import { MdHome, MdFavoriteBorder, MdPersonOutline } from 'react-icons/md'
 // Styled Components
 import { Nav, Link } from './styles'
 
-// constants
+// Constants
 const SIZE = '32px'
 
 export const NavBar = () => {

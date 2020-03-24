@@ -1,5 +1,8 @@
 import styled from 'styled-components'
-import {Link as LinkRouter} from '@reach/router'
+import { Link as LinkRouter } from '@reach/router'
+
+// Animations
+import { fadeIn } from '../../styles/animation'
 
 export const Nav = styled.nav`
   display: flex;
@@ -26,4 +29,17 @@ export const Link = styled(LinkRouter)`
   height: 100%;
   text-decoration: none;
   color: #888;
+  
+  &[aria-current] {
+    color: #000;
+    
+    &::after {
+      ${fadeIn({ time: '0.5s' })};
+      content: '•';
+      position: absolute;
+      bottom: 0;
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
 `
