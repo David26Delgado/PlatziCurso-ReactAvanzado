@@ -5,9 +5,7 @@ import { Router } from '@reach/router'
 
 // Components
 import { Logo } from './components/Logo'
-
-// Containers
-import { PhotoCardWithQuery } from './containers/PhotoCardWithQuery'
+import { NavBar } from './components/NavBar'
 
 // Pages
 import { Home } from './pages/Home'
@@ -26,6 +24,7 @@ export const App = () => {
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
       </Router>
+      <NavBar />
     </>
   )
 }
